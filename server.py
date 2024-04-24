@@ -8,27 +8,37 @@ def consoleLog(message):
     print(f"{current_time}: {message}")
 
 
+def getusername(message):
+    name = ''
+    if message['user_badgelevel'] > 0:
+        name += '[Lv:' + str(message['user_badgelevel']) + ']'
+    if message['user_fansLevel'] > 0:
+        name += '[' + message['user_fansLightName'] + ':' + str(message['user_fansLevel']) + ']'
+    name += message['user_nickName']
+    return name
+
+
 #   礼物
 def parseGift(message):
-    log = message['user_nickName'] + ':送出 ' + str(message['gift_comboCount']) + ' 个 ' + message['gift_name']
+    log = getusername(message) + ':送出 ' + str(message['gift_comboCount']) + ' 个 ' + message['gift_name']
     consoleLog(log)
 
 
 #   聊天
 def parseChat(message):
-    log = message['user_nickName'] + ':' + message['msg_content']
+    log = getusername(message) + ':' + message['msg_content']
     consoleLog(log)
 
 
 #   来了
 def parseMember(message):
-    log = message['user_nickName'] + ':' + message['msg_content']
+    log = getusername(message) + ':' + message['msg_content']
     consoleLog(log)
 
 
 #   点赞
 def parseLike(message):
-    log = message['user_nickName'] + ':' + message['msg_content']
+    log = getusername(message) + ':' + message['msg_content']
     consoleLog(log)
 
 
@@ -40,7 +50,7 @@ def parseRoom(message):
 
 #   加入粉丝团
 def parseFansclub(message):
-    log = message['user_nickName'] + ':' + message['msg_content']
+    log = getusername(message) + ':' + message['msg_content']
     consoleLog(log)
 
 
