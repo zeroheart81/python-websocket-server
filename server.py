@@ -20,7 +20,7 @@ def getusername(message):
 
 #   礼物
 def parseGift(message):
-    log = getusername(message) + ':送出 ' + str(message['gift_comboCount']) + ' 个 ' + message['gift_name']
+    log = getusername(message) + ':送出 [' + str(message['gift_comboCount']) + '] 个 ' + message['gift_name'] + 'Diamond:[' + message['diamond_count'] + ']'
     consoleLog(log)
 
 
