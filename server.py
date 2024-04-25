@@ -1,3 +1,4 @@
+import roomdata
 from websocket_server import WebsocketServer
 import json
 import datetime
@@ -20,7 +21,8 @@ def getusername(message):
 
 #   礼物
 def parseGift(message):
-    log = getusername(message) + ':送出 [' + str(message['gift_comboCount']) + '] 个 ' + message['gift_name'] + 'Diamond:[' + message['diamond_count'] + ']'
+    roomdata.newgift(message['user_id'],message['user_nickName'],message['user_gender'],message['user_isAdmin'],message['user_badgelevel'],message['user_fansLevel'],message['gift_id'],message['gift_name'],message['gift_comboCount'],message['gift_diamondCount'])
+    log = getusername(message) + ':送出 [' + str(message['gift_comboCount']) + '] 个 ' + message['gift_name'] + 'Diamond:[' + str(message['gift_diamondCount']) + ']'
     consoleLog(log)
 
 
@@ -111,3 +113,5 @@ server.set_fn_new_client(new_client)
 server.set_fn_client_left(client_left)
 server.set_fn_message_received(message_received)
 server.run_forever()
+#roomdata.showWindow()
+
