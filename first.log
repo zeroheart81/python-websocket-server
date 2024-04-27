@@ -1,0 +1,10 @@
+2024-04-27 19:29:38.215 |DEBUG   | __main__ : example_log:  18 | mymodule | - this is debug
+2024-04-27 19:29:38.217 |INFO    | __main__ : example_log:  19 | mymodule | - this is info
+2024-04-27 19:29:38.218 |WARNING | __main__ : example_log:  20 | mymodule | - this is warning
+2024-04-27 19:29:38.218 |ERROR   | __main__ : example_log:  21 | mymodule | - this is error
+2024-04-27 19:29:38.218 |CRITICAL| __main__ : example_log:  22 | mymodule | - this is critical
+2024-04-27 19:32:10.513 |DEBUG   | __main__ : example_log:  18 | mymodule | - this is debug
+2024-04-27 19:32:10.513 |INFO    | __main__ : example_log:  19 | mymodule | - this is info
+2024-04-27 19:32:10.514 |WARNING | __main__ : example_log:  20 | mymodule | - this is warning
+2024-04-27 19:32:10.524 |ERROR   | __main__ : example_log:  21 | mymodule | - this is error
+2024-04-27 19:32:10.525 |CRITICAL| __main__ : example_log:  22 | mymodule | - this is critical

@@ -1,5 +1,7 @@
 # Dev/test/deploy
 IPython
-pytest
+pytest~=8.1.1
 websocket-client>=1.1.1
 twine
+
+websockets~=12.0

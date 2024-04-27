@@ -1,6 +1,3 @@
-import roominfo
-
-
 class User:
     def __init__(self, uid, name, gender, isadmin, level, fanlv, diamond):
         self.uid = uid
@@ -17,17 +14,6 @@ class User:
 
 # 礼物人员统计
 members = []
-
-
-# 使用sorted()函数对members列表进行排序，排序依据是每个User实例的gift属性
-def sortmembers():
-    global members
-    members = sorted(members, key=lambda user: user.gift)
-
-
-# 打印排序后的members列表
-#for member in sorted_members:
-#    print(member)
 
 
 class Gift:
@@ -70,9 +56,8 @@ def newgift(uid, name, gender, isadmin, level, fanlv, giftid, giftname, count, d
     else:
         gifts.append(Gift(giftid, giftname, count))
 
-    refreshwindow()
 
-
+#刷新礼物统计
 def refreshwindow():
     global members, diamonds
 
@@ -88,20 +73,19 @@ def refreshwindow():
         else:
             userlist += "\n"
 
+    # 打印排序后的members列表
+    # 使用sorted()函数对members列表进行排序，排序依据是每个User实例的gift属性
+    def sortmembers():
+        global members
+        members = sorted(members, key=lambda user: user.diamond, reverse=True)
+
+    sortmembers()
     #打赏累计列表
+    i = 0
     giftlist = ""
     for gift in gifts:
+        i += 1
         giftlist += str(i) + ". " + gift.name + "D:" + str(gift.count)
         giftlist += "\n"
 
-    #roominfo.app.call_next(totaldiamond + "\n" + giftlist + "\n" + userlist)
-
-
-wnd_app = None
-
-
-def showWindow():
-    global wnd_app
-    if not wnd_app:
-        wnd_app = roominfo.app
-        roominfo.app.mainloop()
+    return totaldiamond + "\n\n" + giftlist + "\n打赏人数:" + str(len(members)) + '\n' + userlist
